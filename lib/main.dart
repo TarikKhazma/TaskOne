@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:task_one/feature/home_screens.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_one/feature/cubit/student_cubit.dart';
+import 'package:task_one/feature/view/home_screens.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(BlocProvider(create: (_) => StudentCubit(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: (HomeScreens()),
+      home: HomeScreens(),
     );
   }
 }
